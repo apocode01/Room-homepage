@@ -70,3 +70,54 @@ body {
         background-color: $grey800;
     }
 }
+
+.main_content {
+    @include flex-center(column, center, flex-start);
+    gap: 1rem;
+    padding-block: 4rem;
+    padding-inline: 2rem;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.description {
+    font-weight: 500;
+    color: $grey500;
+    line-height: 1.2em;
+}
+
+.shop_btn {
+    @include button;
+    @include flex-center();
+    gap: 1.2rem;
+    background-color: transparent;
+    margin-block-start: 1.5rem;
+
+    .text {
+        transition: color 0.3s ease;
+        transition: letter-spacing 0.3s ease;
+    }
+
+    path {
+        transition: fill 0.3s ease;
+    }
+
+    &:hover {
+        .text {
+            letter-spacing: 0.75rem;
+            color: $grey500;
+        }
+        path {fill: $grey500}
+    }
+
+    .text {
+        font-family: "League Spartan", sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.7rem;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+}
