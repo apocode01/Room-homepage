@@ -24,8 +24,8 @@ body {
 }
 
 .navbar {
-  margin-block-start: 3rem;
-  margin-inline: 1.5rem;
+  padding-block-start: 3rem;
+  padding-inline: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   position: relative;
@@ -48,6 +48,21 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   background-color: transparent;
+}
+
+.menu_panel {
+  position: absolute;
+  background-color: hsl(0, 100%, 100%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(6rem + 18px);
+  z-index: 5;
+  transform: translateY(-100%);
+  transition: transform 0.35s ease;
+}
+.menu_panel.open {
+  transform: translateY(0);
 }
 
 .logo {
@@ -166,4 +181,21 @@ body {
   font-weight: 500;
   color: hsl(0, 0%, 63%);
   line-height: 1.4em;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: hsl(0, 0%, 0%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+.overlay.active {
+  display: block;
+  opacity: 50%;
+  z-index: 1;
 }/*# sourceMappingURL=style.css.map */

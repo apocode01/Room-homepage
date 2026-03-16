@@ -11,18 +11,20 @@
   <header class="hero">
     <img class="hero_img" src="images/mobile-image-hero-1.jpg" alt="modern chairs, table and decorative plant">
     <nav class="navbar">
-        <button class="open_menu" type="button">
-          <img src="images/icon-hamburger.svg" alt="Open menu">
-        </button>
-        <ul class="navbar_categories hidden">
+      <button class="open_menu" type="button">
+        <img src="images/icon-hamburger.svg" alt="Open menu">
+      </button>
+      <div class="menu_panel hidden">
+        <ul class="navbar_categories">
           <li><a href="#">Home</a></li>
           <li><a href="#">Shop</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
-        <a class="logo" href="#">
-          <img src="images/logo.svg" alt="Room Logo">
-        </a>
+      </div>
+      <a class="logo" href="#">
+        <img src="images/logo.svg" alt="Room Logo">
+      </a>
     </nav>
     <div class="change_img_buttons">
       <button class="prev_btn" type="button">
@@ -77,6 +79,8 @@
   </main>
 
   <img class="light_about_image" src="images/image-about-light.jpg">
+
+  <div class="overlay"></div>
 
   <script src="script.js"></script>
 </body>
