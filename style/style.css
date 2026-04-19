@@ -32,10 +32,20 @@ body {
 }
 
 .navbar_categories {
+  display: flex;
+  flex-direction: row;
+  gap: 3.3rem;
   list-style: none;
 }
 .navbar_categories.hidden {
   display: none;
+}
+.navbar_categories a {
+  text-transform: lowercase;
+  text-decoration: none;
+  color: hsl(0, 0%, 0%);
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .open_menu {
@@ -51,6 +61,11 @@ body {
 }
 
 .menu_panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.5rem;
   position: absolute;
   background-color: hsl(0, 100%, 100%);
   top: 0;
@@ -63,6 +78,22 @@ body {
 }
 .menu_panel.open {
   transform: translateY(0);
+}
+
+.close_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: transparent;
+}
+.close_menu img {
+  height: 20px;
+  width: 20px;
 }
 
 .logo {
@@ -191,11 +222,12 @@ body {
   width: 100vw;
   background-color: hsl(0, 0%, 0%);
   opacity: 0;
-  z-index: -1;
+  z-index: 1;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 .overlay.active {
   display: block;
   opacity: 50%;
-  z-index: 1;
+  pointer-events: auto;
 }/*# sourceMappingURL=style.css.map */

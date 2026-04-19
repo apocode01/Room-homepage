@@ -35,10 +35,21 @@ body {
 }
 
 .navbar_categories {
+    display: flex;
+    flex-direction: row;
+    gap: 3.3rem;
     list-style: none;
 
     &.hidden {
         display: none;
+    }
+
+    a {
+        text-transform: lowercase;
+        text-decoration: none; 
+        color: $black;
+        font-weight: 600;
+        font-size: 1.1rem;
     }
 }
 
@@ -49,6 +60,8 @@ body {
 }
 
 .menu_panel {
+    @include flex-center(row, space-between, center);
+    padding-inline: 1.5rem;
     position: absolute;
     background-color: $white;
     top: 0;
@@ -61,6 +74,17 @@ body {
 
     &.open {
         transform: translateY(0);
+    }
+}
+
+.close_menu {
+    @include button;
+    width: fit-content;
+    background-color: transparent;
+
+    img {
+        height: 20px;
+        width: 20px;
     }
 }
 
@@ -172,12 +196,13 @@ body {
     width: 100vw;
     background-color: $black;
     opacity: 0;
-    z-index: -1;
+    z-index: 1;
+    pointer-events: none;
     transition: opacity 0.3s ease;
 
     &.active {
         display: block;
         opacity: 50%;
-        z-index: 1;
+        pointer-events: auto;
     }
 }
