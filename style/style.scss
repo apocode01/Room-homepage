@@ -24,6 +24,13 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .navbar {
@@ -50,6 +57,24 @@ body {
         color: $black;
         font-weight: 600;
         font-size: 1.1rem;
+        position: relative;
+    }
+
+    a::after {
+        content: "";
+        position: absolute;
+        background-color: $black;
+        height: 3px;
+        left: 0;
+        width: 100%;
+        bottom: -0.5rem;
+        transform: scaleX(0);
+        transition: transform 250ms ease-out;
+    }
+
+    a:hover::after {
+        transform: scaleX(1);
+        transition: transform 250ms ease;
     }
 }
 
@@ -121,12 +146,20 @@ body {
 .main_title {
     font-weight: 700;
     font-size: 2.5rem;
+
+    &.hidden {
+        display: none;
+    }
 }
 
 .main_description {
     font-weight: 500;
     color: $grey500;
     line-height: 1.4em;
+
+    &.hidden {
+        display: none;
+    }
 }
 
 .shop_btn {
@@ -162,7 +195,8 @@ body {
     }
 }
 
-.dark_about_image, .light_about_image {
+.image_about_dark, .image_about_light {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
