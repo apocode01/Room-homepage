@@ -9,9 +9,18 @@
 </head>
 <body>
   <header class="hero">
-    <img class="hero_img" src="images/mobile-image-hero-1.jpg" alt="modern chairs, table and decorative plant">
-    <img class="hero_img hidden" src="images/mobile-image-hero-2.jpg" alt="modern chairs, table and decorative plant">
-    <img class="hero_img hidden" src="images/mobile-image-hero-3.jpg" alt="modern chairs, table and decorative plant">
+    <picture>
+      <source srcset="images/desktop-image-hero-1.jpg" media="(min-width: 50rem)">
+      <img class="hero_img" src="images/mobile-image-hero-1.jpg" alt="modern chairs, table and decorative plant">
+    </picture>
+    <picture>
+      <source srcset="images/desktop-image-hero-2.jpg" media="(min-width: 50rem)">
+      <img class="hero_img hidden" src="images/mobile-image-hero-2.jpg" alt="minimal chairs of different colors">
+    </picture>
+    <picture>
+      <source srcset="images/desktop-image-hero-3.jpg" media="(min-width: 50rem)">
+      <img class="hero_img hidden" src="images/mobile-image-hero-3.jpg" alt="black comfortable chair">
+    </picture>
     <nav class="navbar">
       <button class="open_menu" type="button">
         <img src="images/icon-hamburger.svg" alt="Open menu">
@@ -65,21 +74,32 @@
         <span class="text">Shop now</span>
         <svg width="40" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z" fill="#000" fill-rule="nonzero"/></svg>
       </button>
+
+      <div class="change_img_buttons_desktop">
+        <button class="prev_btn_desktop" type="button">
+          <img src="images/icon-angle-left.svg" alt="previous image">
+        </button>
+        <button class="next_btn_desktop" type="button">
+          <img src="images/icon-angle-right.svg" alt="previous image">
+        </button>
+      </div>
     </section>
 
-    <img class="image_about_dark" src="images/image-about-dark.jpg">
+    <div class="bottom">
+      <img class="image_about_dark" src="images/image-about-dark.jpg">
 
-    <section class="about">
-      <h2 class="about_title">About our furniture</h2>
+      <section class="about">
+        <h2 class="about_title">About our furniture</h2>
 
-      <p class="about_description">Our multifunctional collection blends design and function to suit your individual taste.
-      Make each room unique, or pick a cohesive theme that best express your interests and what
-      inspires you. Find the furniture pieces you need, from traditional to contemporary styles
-      or anything in between. Product specvialists are available to help you create your dream space.</p>
-    </section>
+        <p class="about_description">Our multifunctional collection blends design and function to suit your individual taste.
+        Make each room unique, or pick a cohesive theme that best express your interests and what
+        inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+        or anything in between. Product specvialists are available to help you create your dream space.</p>
+      </section>
+
+      <img class="image_about_light" src="images/image-about-light.jpg">
+    </div>
   </main>
-
-  <img class="image_about_light" src="images/image-about-light.jpg">
 
   <div class="overlay"></div>
 

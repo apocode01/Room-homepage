@@ -5,6 +5,8 @@ const navbarCategories = document.querySelector(`.navbar_categories`);
 const overlay = document.querySelector(`.overlay`);
 const prevBtn = document.querySelector(`.prev_btn`);
 const nextBtn = document.querySelector(`.next_btn`);
+const prevBtnDesktop = document.querySelector(`.prev_btn_desktop`);
+const nextBtnDesktop = document.querySelector(`.next_btn_desktop`);
 const mainTitle = document.querySelectorAll(`.main_title`)
 const mainDescription = document.querySelectorAll(`.main_description`)
 const heroImg = document.querySelectorAll(`.hero_img`)
@@ -37,6 +39,30 @@ prevBtn.addEventListener('click', () => {
 })
 
 nextBtn.addEventListener('click', () => {
+    mainTitle[content_idx].classList.add(`hidden`);
+    mainDescription[content_idx].classList.add(`hidden`);
+    heroImg[content_idx].classList.add(`hidden`);
+
+    // increment index and wrap idx 3 to idx 0
+    content_idx = (content_idx + 1) % 3;
+    mainTitle[content_idx].classList.remove(`hidden`);
+    mainDescription[content_idx].classList.remove(`hidden`);
+    heroImg[content_idx].classList.remove(`hidden`);
+})
+
+prevBtnDesktop.addEventListener('click', () => {
+    mainTitle[content_idx].classList.add(`hidden`);
+    mainDescription[content_idx].classList.add(`hidden`);
+    heroImg[content_idx].classList.add(`hidden`);
+
+    // decrement index and wrap idx 0 to idx 2
+    content_idx = (content_idx + 2) % 3;
+    mainTitle[content_idx].classList.remove(`hidden`);
+    mainDescription[content_idx].classList.remove(`hidden`);
+    heroImg[content_idx].classList.remove(`hidden`);
+})
+
+nextBtnDesktop.addEventListener('click', () => {
     mainTitle[content_idx].classList.add(`hidden`);
     mainDescription[content_idx].classList.add(`hidden`);
     heroImg[content_idx].classList.add(`hidden`);

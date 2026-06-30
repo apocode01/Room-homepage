@@ -11,12 +11,22 @@
 
 body {
     font-family: "League Spartan", sans-serif;
+
+    @media only screen and (min-width: $bp-large) {
+        display: grid;
+        grid-template-columns: calc(70% - 12rem) calc(30% + 12rem); // 12 rem is the size of the two nav buttons
+        grid-template-rows: auto auto;
+    } 
 }
 
 .hero {
     position: relative;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+
+    @media only screen and (min-width: $bp-medium) {
+        aspect-ratio: 840 / 534;
+    }
 }
 
 .hero_img {
@@ -30,6 +40,10 @@ body {
     &.hidden {
         opacity: 0;
         pointer-events: none;
+    }
+
+    @media only screen and (min-width: $bp-medium) {
+        height: auto;
     }
 }
 
@@ -134,9 +148,46 @@ body {
     &:hover {
         background-color: $grey800;
     }
+
+    @media only screen and (min-width: $bp-large) {
+        display: none;
+    } 
+}
+
+.change_img_buttons_desktop {
+    @include flex-center();
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.prev_btn_desktop, .next_btn_desktop {
+    @include button;
+    width: 6rem;
+    height: 6rem;
+    background-color: $black;
+    transition: background-color 0.3s ease;
+    display: none;
+
+    &:hover {
+        background-color: $grey800;
+    }
+
+    @media only screen and (min-width: $bp-large) {
+        display: block;
+
+        img {
+            width: 1.2rem;
+        }
+    } 
+}
+
+main {
+    display: contents;
 }
 
 .main_content {
+    position: relative;
     @include flex-center(column, center, flex-start);
     gap: 1rem;
     padding-block: 3.5rem;
@@ -193,6 +244,16 @@ body {
         text-transform: uppercase;
         font-size: 1.2rem;
     }
+}
+
+.bottom {
+    @media only screen and (min-width: $bp-large) {
+        grid-column: 1 / 4;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+        grid-template-rows: auto auto;
+    } 
 }
 
 .image_about_dark, .image_about_light {

@@ -8,11 +8,23 @@
 body {
   font-family: "League Spartan", sans-serif;
 }
+@media only screen and (min-width: 103.7rem) {
+  body {
+    display: grid;
+    grid-template-columns: calc(70% - 12rem) calc(30% + 12rem);
+    grid-template-rows: auto auto;
+  }
+}
 
 .hero {
   position: relative;
   aspect-ratio: 1/1;
   overflow: hidden;
+}
+@media only screen and (min-width: 50rem) {
+  .hero {
+    aspect-ratio: 840/534;
+  }
 }
 
 .hero_img {
@@ -27,6 +39,11 @@ body {
 .hero_img.hidden {
   opacity: 0;
   pointer-events: none;
+}
+@media only screen and (min-width: 50rem) {
+  .hero_img {
+    height: auto;
+  }
 }
 
 .navbar {
@@ -147,8 +164,53 @@ body {
 .prev_btn:hover, .next_btn:hover {
   background-color: hsl(0, 0%, 27%);
 }
+@media only screen and (min-width: 103.7rem) {
+  .prev_btn, .next_btn {
+    display: none;
+  }
+}
+
+.change_img_buttons_desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.prev_btn_desktop, .next_btn_desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  width: 6rem;
+  height: 6rem;
+  background-color: hsl(0, 0%, 0%);
+  transition: background-color 0.3s ease;
+  display: none;
+}
+.prev_btn_desktop:hover, .next_btn_desktop:hover {
+  background-color: hsl(0, 0%, 27%);
+}
+@media only screen and (min-width: 103.7rem) {
+  .prev_btn_desktop, .next_btn_desktop {
+    display: block;
+  }
+  .prev_btn_desktop img, .next_btn_desktop img {
+    width: 1.2rem;
+  }
+}
+
+main {
+  display: contents;
+}
 
 .main_content {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -210,6 +272,16 @@ body {
   letter-spacing: 0.7rem;
   text-transform: uppercase;
   font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 103.7rem) {
+  .bottom {
+    grid-column: 1/4;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: auto auto;
+  }
 }
 
 .image_about_dark, .image_about_light {
