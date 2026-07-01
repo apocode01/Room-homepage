@@ -24,6 +24,15 @@ closeMenuBtn.addEventListener('click', () => {
     overlay.classList.remove(`active`);
 })
 
+const mq = window.matchMedia("(max-width: 40rem)");
+mq.addEventListener("change", (e) => {
+    if (!e.matches) {
+    menuPanel.classList.remove(`open`);
+    navbarCategories.classList.remove(`hidden`);
+    overlay.classList.remove(`active`);
+    }
+});
+
 content_idx = 0
 
 prevBtn.addEventListener('click', () => {

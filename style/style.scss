@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
-@import "colors";
+@import "variables";
 @import "mixins";
 
 * {
@@ -48,17 +48,22 @@ body {
 }
 
 .navbar {
-    padding-block-start: 3rem;
-    padding-inline: 1.5rem;
+    padding-block-start: clamp(3rem, 1.875vw + 2.25rem, 4.5rem);
+    padding-inline: clamp(1.5rem, 3.125vw + 0.25rem, 4rem);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     position: relative;
+
+    @media only screen and (min-width: $bp-medium) {
+        @include flex-center(row, flex-start, flex-start);
+        gap: 5rem;
+    } 
 }
 
 .navbar_categories {
     display: flex;
     flex-direction: row;
-    gap: 3.3rem;
+    gap: clamp(1rem, 20.556vw - 3.111rem, 3.313rem);
     list-style: none;
 
     &.hidden {
@@ -70,7 +75,7 @@ body {
         text-decoration: none; 
         color: $black;
         font-weight: 600;
-        font-size: 1.1rem;
+        font-size: clamp(1rem, 1.563vw + 0.688rem, 1.313rem);
         position: relative;
     }
 
@@ -90,12 +95,20 @@ body {
         transform: scaleX(1);
         transition: transform 250ms ease;
     }
+
+    @media only screen and (min-width: $bp-medium) {
+        display: none;
+    } 
 }
 
 .open_menu {
     @include button;
     width: fit-content;
     background-color: transparent;
+
+    @media only screen and (min-width: $bp-medium) {
+        display: none;
+    } 
 }
 
 .menu_panel {
@@ -114,6 +127,10 @@ body {
     &.open {
         transform: translateY(0);
     }
+
+    @media only screen and (min-width: $bp-medium) {
+        display: none;
+    } 
 }
 
 .close_menu {
@@ -125,10 +142,59 @@ body {
         height: 20px;
         width: 20px;
     }
+
+    @media only screen and (min-width: $bp-medium) {
+        display: none;
+    } 
 }
 
 .logo {
     justify-self: center;
+
+    img {
+        height: clamp(0.875rem, 0.313vw + 0.813rem, 1.188rem);
+    }
+}
+
+.navbar_categories_desktop {
+    display: none;
+    flex-direction: row;
+    gap: 3.3rem;
+    list-style: none;
+
+    &.hidden {
+        display: none;
+    }
+
+    a {
+        text-transform: lowercase;
+        text-decoration: none; 
+        color: $white;
+        font-weight: 600;
+        font-size: clamp(1.1rem, 0.266vw + 0.994rem, 1.313rem);
+        position: relative;
+    }
+
+    a::after {
+        content: "";
+        position: absolute;
+        background-color: $white;
+        height: 3px;
+        left: 0;
+        width: 100%;
+        bottom: -0.5rem;
+        transform: scaleX(0);
+        transition: transform 250ms ease-out;
+    }
+
+    a:hover::after {
+        transform: scaleX(1);
+        transition: transform 250ms ease;
+    }
+
+    @media only screen and (min-width: $bp-medium) {
+        display: flex;
+    } 
 }
 
 .change_img_buttons {
@@ -149,7 +215,7 @@ body {
         background-color: $grey800;
     }
 
-    @media only screen and (min-width: $bp-large) {
+    @media only screen and (min-width: $bp-XL) {
         display: none;
     } 
 }
@@ -173,7 +239,7 @@ body {
         background-color: $grey800;
     }
 
-    @media only screen and (min-width: $bp-large) {
+    @media only screen and (min-width: $bp-XL) {
         display: block;
 
         img {
@@ -196,7 +262,7 @@ main {
 
 .main_title {
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 1.438vw + 1.462rem, 3.188rem);
 
     &.hidden {
         display: none;
@@ -205,6 +271,7 @@ main {
 
 .main_description {
     font-weight: 500;
+    font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
     color: $grey500;
     line-height: 1.4em;
 
@@ -223,6 +290,11 @@ main {
     .text {
         transition: color 0.3s ease;
         transition: letter-spacing 0.3s ease;
+        font-family: "League Spartan", sans-serif;
+        font-weight: 600;
+        letter-spacing: clamp(0.563rem, 0.125vw + 0.537rem, 0.688rem);
+        text-transform: uppercase;
+        font-size: clamp(1.1rem, 0.2vw + 1.06rem, 1.3rem);
     }
 
     path {
@@ -231,28 +303,27 @@ main {
 
     &:hover {
         .text {
-            letter-spacing: 0.75rem;
+            letter-spacing: clamp(0.625rem, 0.125vw + 0.6rem, 0.75rem);
             color: $grey500;
         }
         path {fill: $grey500}
-    }
-
-    .text {
-        font-family: "League Spartan", sans-serif;
-        font-weight: 600;
-        letter-spacing: 0.7rem;
-        text-transform: uppercase;
-        font-size: 1.2rem;
     }
 }
 
 .bottom {
     @media only screen and (min-width: $bp-large) {
         grid-column: 1 / 4;
+        display: grid;
+        grid-template-columns: calc(70% - 20rem) calc(30% + 20rem); // 12 rem is the size of the two nav buttons
+        grid-template-rows: auto auto;
+    } 
+
+    @media only screen and (min-width: $bp-XL) {
+        grid-column: 1 / 4;
         grid-row: 2;
         display: grid;
         grid-template-columns: 30% 40% 30%;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto;
     } 
 }
 
@@ -268,17 +339,27 @@ main {
     gap: 1rem;
     padding-block: 3.5rem;
     padding-inline: 2rem;
+
+    @media only screen and (min-width: $bp-large) {
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+
+    @media only screen and (min-width: $bp-XL) {
+        grid-column: 2;
+    }
 }
 
 .about_title {
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: clamp(0.875rem, 0.75vw + 0.725rem, 1.625rem);
     text-transform: uppercase;
     letter-spacing: 0.4rem;
 }
 
 .about_description {
     font-weight: 500;
+    font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
     color: $grey500;
     line-height: 1.4em;
 }
