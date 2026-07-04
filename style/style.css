@@ -124,7 +124,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-inline: 1.5rem;
-  position: absolute;
+  position: fixed;
   background-color: hsl(0, 100%, 100%);
   top: 0;
   left: 0;
@@ -184,7 +184,7 @@ body {
   text-transform: lowercase;
   text-decoration: none;
   color: hsl(0, 100%, 100%);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(1.1rem, 0.266vw + 0.994rem, 1.313rem);
   position: relative;
 }
@@ -287,7 +287,7 @@ main {
   align-items: flex-start;
   gap: 1rem;
   padding-block: 3.5rem;
-  padding-inline: 2rem;
+  padding-inline: clamp(2rem, 16.842vw - 10.211rem, 10rem);
 }
 
 .main_title {
@@ -301,7 +301,7 @@ main {
 .main_description {
   font-weight: 500;
   font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
-  color: hsl(0, 0%, 63%);
+  color: hsl(0, 0%, 45%);
   line-height: 1.4em;
 }
 .main_description.hidden {
@@ -337,10 +337,10 @@ main {
 }
 .shop_btn:hover .text {
   letter-spacing: clamp(0.625rem, 0.125vw + 0.6rem, 0.75rem);
-  color: hsl(0, 0%, 63%);
+  color: hsl(0, 0%, 45%);
 }
 .shop_btn:hover path {
-  fill: hsl(0, 0%, 63%);
+  fill: hsl(0, 0%, 45%);
 }
 
 @media only screen and (min-width: 72.5rem) {
@@ -376,7 +376,7 @@ main {
   align-items: flex-start;
   gap: 1rem;
   padding-block: 3.5rem;
-  padding-inline: 2rem;
+  padding-inline: clamp(2rem, 4.211vw - 1.053rem, 4rem);
 }
 @media only screen and (min-width: 72.5rem) {
   .about {
@@ -399,8 +399,8 @@ main {
 
 .about_description {
   font-weight: 500;
-  font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
-  color: hsl(0, 0%, 63%);
+  font-size: clamp(1rem, 0.188vw + 0.963rem, 1.188rem);
+  color: hsl(0, 0%, 45%);
   line-height: 1.4em;
 }
 

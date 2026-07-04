@@ -114,7 +114,7 @@ body {
 .menu_panel {
     @include flex-center(row, space-between, center);
     padding-inline: 1.5rem;
-    position: absolute;
+    position: fixed;
     background-color: $white;
     top: 0;
     left: 0;
@@ -170,7 +170,7 @@ body {
         text-transform: lowercase;
         text-decoration: none; 
         color: $white;
-        font-weight: 600;
+        font-weight: 500;
         font-size: clamp(1.1rem, 0.266vw + 0.994rem, 1.313rem);
         position: relative;
     }
@@ -257,7 +257,7 @@ main {
     @include flex-center(column, center, flex-start);
     gap: 1rem;
     padding-block: 3.5rem;
-    padding-inline: 2rem;
+    padding-inline: clamp(2rem, 16.842vw - 10.211rem, 10rem);
 }
 
 .main_title {
@@ -338,7 +338,7 @@ main {
     @include flex-center(column, center, flex-start);
     gap: 1rem;
     padding-block: 3.5rem;
-    padding-inline: 2rem;
+    padding-inline: clamp(2rem, 4.211vw - 1.053rem, 4rem);
 
     @media only screen and (min-width: $bp-large) {
         grid-column: 1;
@@ -359,7 +359,7 @@ main {
 
 .about_description {
     font-weight: 500;
-    font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
+    font-size: clamp(1rem, 0.188vw + 0.963rem, 1.188rem);
     color: $grey500;
     line-height: 1.4em;
 }
